@@ -1,0 +1,199 @@
+<!-- Styles -->
+<style>
+    #dayLaTenDiv {
+        width: 100%;
+        height: 500px;
+    }
+</style>
+
+<!-- Resources -->
+<script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+<script src="https://www.amcharts.com/lib/3/serial.js"></script>
+<script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+<link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+<script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+
+<!-- Chart code -->
+<script>
+    var chart = AmCharts.makeChart( "dayLaTenDiv", {
+        "type": "serial",
+        "addClassNames": true,
+        "theme": "light",
+        "autoMargins": false,
+        "marginLeft": 30,
+        "marginRight": 8,
+        "marginTop": 10,
+        "marginBottom": 26,
+        "balloon": {
+            "adjustBorderColor": false,
+            "horizontalPadding": 10,
+            "verticalPadding": 8,
+            "color": "#ffffff"
+        },
+
+        "dataProvider": [ {
+            "year": 2009,
+            "income": 23.5,
+            "expenses": 21.1
+        }, {
+            "year": 2010,
+            "income": 26.2,
+            "expenses": 30.5
+        }, {
+            "year": 2011,
+            "income": 30.1,
+            "expenses": 34.9
+        }, {
+            "year": 2012,
+            "income": 29.5,
+            "expenses": 31.1
+        }, {
+            "year": 2013,
+            "income": 30.6,
+            "expenses": 28.2,
+            "dashLengthLine": 5
+        }, {
+            "year": 2014,
+            "income": 34.1,
+            "expenses": 32.9,
+            "dashLengthColumn": 5,
+            "alpha": 0.2,
+            "additional": "(projection)"
+        } ],
+        "valueAxes": [ {
+            "axisAlpha": 0,
+            "position": "left"
+        } ],
+        "startDuration": 1,
+        "graphs": [ {
+            "alphaField": "alpha",
+            "balloonText": "<span style='font-size:12px;'>[[title]] in [[category]]:<br><span style='font-size:20px;'>[[value]]</span> [[additional]]</span>",
+            "fillAlphas": 1,
+            "title": "Income",
+            "type": "column",
+            "valueField": "income",
+            "dashLengthField": "dashLengthColumn"
+        }, {
+            "id": "graph2",
+            "balloonText": "<span style='font-size:12px;'>[[title]] in [[category]]:<br><span style='font-size:20px;'>[[value]]</span> [[additional]]</span>",
+            "bullet": "round",
+            "lineThickness": 3,
+            "bulletSize": 7,
+            "bulletBorderAlpha": 1,
+            "bulletColor": "#FFFFFF",
+            "useLineColorForBulletBorder": true,
+            "bulletBorderThickness": 3,
+            "fillAlphas": 0,
+            "lineAlpha": 1,
+            "title": "Expenses",
+            "valueField": "expenses",
+            "dashLengthField": "dashLengthLine"
+        } ],
+        "categoryField": "year",
+        "categoryAxis": {
+            "gridPosition": "start",
+            "axisAlpha": 0,
+            "tickLength": 0
+        },
+        "export": {
+            "enabled": true
+        }
+    } );
+</script>
+<script type="text/javascript">
+    AmCharts.makeChart("chartdiv",
+        {
+            "type": "serial",
+            "categoryField": "date",
+            "dataDateFormat": "YYYY-MM-DD HH",
+            "categoryAxis": {
+                "minPeriod": "hh",
+                "parseDates": true
+            },
+            "chartCursor": {
+                "enabled": true,
+                "categoryBalloonDateFormat": "JJ:NN"
+            },
+            "chartScrollbar": {
+                "enabled": true
+            },
+            "trendLines": [],
+            "graphs": [ // mô tả graph
+                {
+                    "bullet": "round",
+                    "id": "Line-1",
+                    "title": "Line thu 1",
+                    "valueField": "column-1"
+                },
+                {
+                    "bullet": "square",
+                    "id": "Line-2",
+                    "title": "Line thu 2",
+                    "valueField": "column-2"
+                }
+            ],
+            "guides": [],
+            "valueAxes": [
+                {
+                    "id": "ValueAxis-1",
+                    "title": "Day la ten"
+                }
+            ],
+            "allLabels": [],
+            "balloon": {},
+            "legend": {
+                "enabled": true,
+                "useGraphSettings": true
+            },
+            "titles": [
+                {
+                    "id": "Title-1",
+                    "size": 15,
+                    "text": "Chart Title"
+                }
+            ],
+            "dataProvider": [
+                {
+                    "column-1": 8,
+                    "column-2": 5,
+                    "date": "2014-03-01 08"
+                },
+                {
+                    "column-1": 6,
+                    "column-2": 7,
+                    "date": "2014-03-01 09"
+                },
+                {
+                    "column-1": 2,
+                    "column-2": 3,
+                    "date": "2014-03-01 10"
+                },
+                {
+                    "column-1": 1,
+                    "column-2": 3,
+                    "date": "2014-03-01 11"
+                },
+                {
+                    "column-1": 2,
+                    "column-2": 1,
+                    "date": "2014-03-01 12"
+                },
+                {
+                    "column-1": 3,
+                    "column-2": 2,
+                    "date": "2014-03-01 13"
+                },
+                {
+                    "column-1": 6,
+                    "column-2": 8,
+                    "date": "2014-03-01 14"
+                }
+            ]
+        }
+    );
+</script>
+<!-- HTML -->
+<body>
+<div id="chartdiv" style="width: 100%; height: 400px; background-color: #FFFFFF;" ></div>
+<div id="dayLaTenDiv"></div>
+</body>
